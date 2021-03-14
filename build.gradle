@@ -1,0 +1,48 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.2'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id "com.diffplug.spotless" version "5.11.0"
+	id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '15'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+
+	annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
+
+	implementation group: 'org.projectlombok', name: 'lombok', version: '1.18.18'
+	implementation 'org.mapstruct:mapstruct:1.4.2.Final'
+
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation group: 'com.microsoft.sqlserver', name: 'mssql-jdbc', version: '9.2.0.jre15'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+	//	http://localhost:8080/swagger-ui.html
+	implementation 'org.springdoc:springdoc-openapi-ui:1.5.2'
+
+	testImplementation 'org.springframework.security:spring-security-test'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+test {
+	useJUnitPlatform()
+}
+
+spotless {
+	java {
+		importOrder()
+		removeUnusedImports()
+		eclipse()
+	}
+}

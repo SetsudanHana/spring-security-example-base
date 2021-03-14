@@ -1,0 +1,22 @@
+#http://localhost:8080/actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+spring:
+  datasource:
+    username: xxxxxxxx
+    password: xxxxxxxx
+    url: jdbc:sqlserver://localhost:1433
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
